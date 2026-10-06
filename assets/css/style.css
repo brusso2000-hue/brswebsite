@@ -73,7 +73,7 @@ p{margin:0 0 1.1em}
 .ticks{list-style:none;padding:0;margin:0;display:grid;gap:8px;color:var(--ink);font-size:.97rem}
 .ticks li{padding-left:1.5em;position:relative}
 .ticks li::before{content:"";position:absolute;left:0;top:.62em;width:.8em;height:2px;background:var(--accent)}
-.hero-photo{margin-top:56px}
+.hero .wrap.hero-photo{display:block;margin-top:56px}
 .hero-photo img{width:100%;aspect-ratio:21/8;object-fit:cover;border-radius:var(--radius)}
 
 /* Quote card / forms */
