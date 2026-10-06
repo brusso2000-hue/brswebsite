@@ -10,7 +10,7 @@ To send quote-form submissions to a form service (Formspree, FormSubmit, Netlify
 set FORM_ENDPOINT below. While empty, forms open the visitor's email app addressed
 to FORM_MAILTO instead.
 """
-import html, json, os, re, shutil, datetime
+import hashlib, html, json, os, re, shutil, datetime
 from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -256,6 +256,11 @@ def footer():
 <div class="mbar"><a class="btn btn-outline" href="tel:{PHONE_TEL}">Call Now</a><a class="btn btn-cta" href="/request-a-quote/">Get a Free Quote</a></div>'''
 
 
+def ver(rel):
+    """Short content hash so a changed stylesheet/script gets a new URL (browsers never keep a stale copy)."""
+    return hashlib.md5(open(os.path.join(ROOT, rel), 'rb').read()).hexdigest()[:8]
+
+
 def head(title, desc, path, og_img=None, schema=None, noindex=False, extra=''):
     url = SITE + (path if path.startswith('/') else '/' + path)
     og = og_img or '/assets/img/BRS-Business-Relocation-Services.webp'
@@ -282,13 +287,13 @@ def head(title, desc, path, og_img=None, schema=None, noindex=False, extra=''):
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
-<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/style.css?v={ver("assets/css/style.css")}">
 {extra}{schema_html}
 </head>'''
 
 
 def page(path, title, desc, body, current='', og_img=None, schema=None, noindex=False, extra=''):
-    out = head(title, desc, path, og_img, schema, noindex, extra) + '<body>' + header(current) + '<main id="main">' + body + '</main>' + footer() + '<script src="/assets/js/main.js" defer></script></body></html>'
+    out = head(title, desc, path, og_img, schema, noindex, extra) + '<body>' + header(current) + '<main id="main">' + body + '</main>' + footer() + '<script src="/assets/js/main.js?v=' + ver("assets/js/main.js") + '" defer></script></body></html>'
     fp = os.path.join(ROOT, path.strip('/'), 'index.html') if path != '/' else os.path.join(ROOT, 'index.html')
     os.makedirs(os.path.dirname(fp), exist_ok=True)
     open(fp, 'w', encoding='utf8').write(out)
