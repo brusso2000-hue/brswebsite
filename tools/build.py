@@ -281,7 +281,7 @@ def head(title, desc, path, og_img=None, schema=None, noindex=False, extra=''):
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
 <link rel="stylesheet" href="/assets/css/style.css">
 {extra}{schema_html}
 </head>'''
@@ -504,7 +504,7 @@ def side(slug=''):
 
 
 def cta_band(h='Ready to get moving?', p='Get your free quote today. It only takes a minute.'):
-    return f'''<section class="sec" style="padding:20px 0 70px"><div class="wrap"><div class="cta-band reveal"><div><h2>{h}</h2><p>{p}</p></div>
+    return f'''<section class="sec" style="padding:20px 0 70px"><div class="wrap"><div class="cta-band"><div><h2>{h}</h2><p>{p}</p></div>
 <div class="actions"><a class="btn btn-cta btn-lg" href="/request-a-quote/">Request a Free Quote</a><a class="btn btn-ghost btn-lg" href="tel:{PHONE_TEL}">Call {PHONE}</a></div></div></div></section>'''
 
 # ---------------------------------------------------------------- testimonials / team / faq data
@@ -542,23 +542,23 @@ built = []
 
 
 def build_home():
-    cards = [
-        ('truck', 'Office Movers & Moving Services', 'With so few organizations taking on the additional projects that arise during office relocations, why not work with skilled professionals who do it all? BRS brings you detail-oriented management for all needs associated with moving your commercial space.', '/office-movers/'),
-        ('build', 'Corporate Relocation', 'Whether it’s assisting, coordinating with your voice and data providers, compiling furniture and equipment inventories, or the myriad other details that surface when moving a work space, we work to ensure a successful project. These services are made available to clients anywhere in the US.', '/business-relocation-services-in-new-york/'),
-        ('chip', 'Moving IT Equipment', 'BRS can disconnect, reconnect, de/re-rack, package and provide direct secure transport services. Our IT team carefully and efficiently moves all of your electronics, always putting precision first.', '/moving-it-equipment-in-new-york/'),
-        ('sofa', 'Office Furniture Installation', 'Furniture installation is one of the most important parts of your office furniture project. We help you plan and organize new installations or reconfigure your current office space to provide you with the quality environment you want.', '/furniture-installation/'),
-        ('box', 'Secure Storage Facilities', 'One of the most important factors in a storage facility is security. It is for this reason that our focus throughout the years of experience in moving and storage is to give you confidence and our professionalism in what we do best.', '/storage-facilities/'),
-        ('check', 'Nationwide Relocation Specialist', 'BRS is a nationwide office relocation specialist that goes far beyond basic relocation services. From new furniture purchasing, to liquidation, to project management to the actual transfer, BRS is your best choice.', '/business-relocation/'),
+    svcs = [
+        ('Office Movers & Moving Services', 'With so few organizations taking on the additional projects that arise during office relocations, why not work with skilled professionals who do it all? BRS brings you detail-oriented management for all needs associated with moving your commercial space.', '/office-movers/'),
+        ('Corporate Relocation', 'Whether it’s assisting, coordinating with your voice and data providers, compiling furniture and equipment inventories, or the myriad other details that surface when moving a work space, we work to ensure a successful project. These services are made available to clients anywhere in the US.', '/business-relocation-services-in-new-york/'),
+        ('Moving IT Equipment', 'BRS can disconnect, reconnect, de/re-rack, package and provide direct secure transport services. Our IT team carefully and efficiently moves all of your electronics, always putting precision first.', '/moving-it-equipment-in-new-york/'),
+        ('Office Furniture Installation', 'Furniture installation is one of the most important parts of your office furniture project. We help you plan and organize new installations or reconfigure your current office space to provide you with the quality environment you want.', '/furniture-installation/'),
+        ('Secure Storage Facilities', 'One of the most important factors in a storage facility is security. It is for this reason that our focus throughout the years of experience in moving and storage is to give you confidence and our professionalism in what we do best.', '/storage-facilities/'),
+        ('Nationwide Relocation Specialist', 'BRS is a nationwide office relocation specialist that goes far beyond basic relocation services. From new furniture purchasing, to liquidation, to project management to the actual transfer, BRS is your best choice.', '/business-relocation/'),
     ]
-    cards_html = ''.join(f'<article class="card reveal"><div class="ico">{icon(i)}</div><h3>{t}</h3><p>{d}</p><a class="more" href="{u}">Learn more</a></article>' for i, t, d, u in cards)
+    svc_html = ''.join(f'<article class="svc"><h3>{t}</h3><p>{d}</p><a class="more" href="{u}">Learn more</a></article>' for t, d, u in svcs)
     feat = [
         ('Rent-Moving-Crates-in-New-York-Business-Relocation-Services', 'Rent Eco-Friendly Crates', 'Whether you’re moving a small office, faculty, classrooms or an entire corporate floor, our rent moving crates service ensures your items stay protected from start to finish. Ideal for short term in-house projects such as office renovations, clean outs, re-stacks or staff shifts.', '/rent-moving-crates/', 'More about moving crates'),
         ('Business-Relocation-Services-Team', 'School Moving Services', 'Relocating a school is a complex process that requires careful planning, experienced coordination, and specialized equipment. We provide professional school moving services designed to ensure a smooth, organized, and stress-free transition for educational institutions of all sizes.', '/school-moving-services/', 'More about school moving'),
         ('Library-Cart-Rental-for-Libraries-and-Institutions-Business-relocation-Services-New-York', 'Library Cart Rental in New York', 'If your library, school, or archive needs reliable library cart rental in New York, Business Relocation Services is here to help. Our team will guide you through the rental process, recommend the right solution, and ensure your project runs smoothly from start to finish.', '/library-cart-rental/', 'More about library carts'),
     ]
-    feat_html = ''.join(f'<article class="card card-img reveal">{img(i)}<div class="body"><h3>{t}</h3><p>{d}</p><a class="more" href="{u}">{l}</a></div></article>' for i, t, d, u, l in feat)
-    tests = ''.join(f'<figure class="quote reveal"><p>“{esc(q)}”</p><figcaption><cite>{esc(n)}<span>{esc(c)}</span></cite></figcaption></figure>' for q, n, c in TESTIMONIALS)
-    team = ''.join(f'<div class="person reveal">{img(i, alt=n + ", " + r + " at Business Relocation Services")}<b>{n}</b><span>{r}</span></div>' for n, r, i in TEAM)
+    feat_html = ''.join(f'<article class="feature">{img(i)}<h3>{t}</h3><p>{d}</p><a class="more" href="{u}">{l}</a></article>' for i, t, d, u, l in feat)
+    tests = ''.join(f'<figure class="quote"><p>“{esc(q)}”</p><figcaption><cite>{esc(n)}<span>{esc(c)}</span></cite></figcaption></figure>' for q, n, c in TESTIMONIALS)
+    team = ''.join(f'<div class="person">{img(i, alt=n + ", " + r + " at Business Relocation Services")}<b>{n}</b><span>{r}</span></div>' for n, r, i in TEAM)
     logos = ''.join(img(i, alt=a, lazy=True) for i, a in CLIENT_LOGOS)
     certs = ''.join(f'<figure>{img(i, alt=a)}<figcaption>{a.split(" certif")[0]}</figcaption></figure>' for i, a in CERT_IMGS)
     faq = ''.join(f'<details><summary>{esc(q)}</summary><p>{esc(a)}</p></details>' for q, a in FAQ)
@@ -568,58 +568,59 @@ def build_home():
              ('Plan', 'We build a detailed move plan with schedules, floor plans and coordination with building management and vendors.'),
              ('Coordinate', 'We work with your voice and data providers, furniture vendors and your staff so your team can keep doing their day jobs.'),
              ('Execute', 'Our trained crews move, install and set up, with monitoring through completion. “Consider it done!”')]
-    steps_html = ''.join(f'<div class="step reveal"><h3>{t}</h3><p>{d}</p></div>' for t, d in steps)
+    steps_html = ''.join(f'<div class="step"><h3>{t}</h3><p>{d}</p></div>' for t, d in steps)
     body = f'''
-<section class="hero" style="--hero-img:url('/assets/img/BRS-Business-Relocation-Services.webp')"><div class="wrap">
-<div><span class="eyebrow">Established 1987 &bull; Certified MWBE &bull; NY, NJ &amp; PA</span>
-<h1>Office Movers &amp; Business Relocation Services in NYC</h1>
-<p class="lead">BRS is a facility relocation project management and moving services company, all in one. From the smallest details to the most complex changes, offices, warehouses and commercial property, we keep your business running through the move.</p>
-<div class="hero-actions"><a class="btn btn-cta btn-lg" href="/request-a-quote/">Get a Free Quote</a><a class="btn btn-ghost btn-lg" href="tel:{PHONE_TEL}">Call {PHONE}</a></div>
-<ul class="ticks"><li>Free quote &amp; consultation</li><li>Trusted by corporate &amp; government clients</li><li>Full-service moving &amp; project management</li></ul></div>
-<div class="qcard" id="quote"><h2>Get your free quote</h2><p class="sub">Tell us about your move. It only takes a minute.</p>{quick_form()}</div>
-</div></section>
+<section class="hero"><div class="wrap">
+<div><p class="eyebrow">Moving NY, NJ &amp; PA businesses since 1987</p>
+<h1>Office movers and business relocation specialists in NYC</h1>
+<p class="lead">BRS is a facility relocation project management and moving services company, all in one. From the smallest details to the most complex changes, we move offices, warehouses and commercial property while your business keeps running.</p>
+<div class="hero-actions"><a class="btn btn-cta btn-lg" href="/request-a-quote/">Get a free quote</a><a class="btn btn-outline btn-lg" href="tel:{PHONE_TEL}">Call {PHONE}</a></div>
+<ul class="ticks"><li>Free quote and moving consultation</li><li>Trusted by corporate and government clients</li><li>Certified Minority and Women-Owned Business (MWBE)</li></ul></div>
+<div class="qcard" id="quote"><h2>Get your free quote</h2><p class="sub">Tell us about your move and we’ll follow up by email.</p>{quick_form()}</div>
+</div>
+<div class="wrap hero-photo">{img('BRS-Business-Relocation-Services', alt='View over Manhattan from an empty office floor ready for a move', eager=True)}</div></section>
 <section class="trust" aria-label="Clients"><div class="wrap"><p>Trusted by corporations, city agencies &amp; non-profits</p><div class="logos">{logos}</div></div></section>
-<div class="wrap"><div class="stats" style="margin-top:40px">
-<div class="stat reveal"><b>1987</b><span>Established &mdash; 35+ years of expertise</span></div>
-<div class="stat reveal"><b>3 States</b><span>New York, New Jersey &amp; Pennsylvania</span></div>
-<div class="stat reveal"><b>MWBE</b><span>Certified Minority &amp; Women-Owned</span></div>
-<div class="stat reveal"><b>1 Team</b><span>Project management + moving, together</span></div></div></div>
+<div class="wrap"><div class="facts">
+<div class="fact"><b>1987</b><span>Established; more than 35 years of experience</span></div>
+<div class="fact"><b>3 states</b><span>New York, New Jersey and Pennsylvania</span></div>
+<div class="fact"><b>MWBE</b><span>Certified Minority and Women-Owned Business Enterprise</span></div>
+<div class="fact"><b>1 team</b><span>Project management and moving under one roof</span></div></div></div>
 
-<section class="sec" id="services"><div class="wrap"><div class="sec-head"><span class="kicker">Our services</span><h2>Business Relocation Services specializes in all types of relocation projects</h2>
+<section class="sec" id="services"><div class="wrap"><div class="sec-head"><h2>Business Relocation Services specializes in all types of relocation projects</h2>
 <p>We help with the transfer of your business from the smallest details to the most complex changes: offices, warehouses or any type of commercial property.</p></div>
-<div class="grid g3">{cards_html}</div>
-<div class="grid g3" style="margin-top:24px">{feat_html}</div>
+<div class="svc-list">{svc_html}</div>
+<div class="feature-row">{feat_html}</div>
 <div class="pill-links">{''.join(f'<a href="/{s[0]}/">{esc(s[1])}</a>' for s in SERVICES)}</div></div></section>
 
-<section class="sec soft"><div class="wrap split"><div class="reveal"><span class="kicker" style="color:var(--blue);font-weight:800;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase">Why BRS</span><h2>A project manager who keeps your business moving</h2>
+<section class="sec soft"><div class="wrap split"><div><h2>A project manager who keeps your business moving</h2>
 <p>The basic requirement is the knowledge of a seasoned Project Manager well versed in how to assess, plan, coordinate, monitor and execute. The benefit is a return on investment (ROI): the experience of a project manager lets your staff do their daily duties and your company operate without interruption.</p>
-<ul class="checklist"><li>Detail-oriented management for everything associated with moving your commercial space</li><li>Coordination with voice &amp; data providers, furniture vendors and building management</li><li>Furniture purchasing, liquidation, installation and storage under one roof</li><li>Well known in both corporate and government circles since 1987</li></ul>
-<a class="btn btn-cta btn-lg" href="/request-a-quote/">Request a Free Quote</a></div>
-<div class="reveal">{img('Office-Movers-BRS-Warehouse-location-Secaucus-NJ', alt='BRS warehouse in Secaucus, NJ')}</div></div></section>
+<ul class="checklist"><li>Detail-oriented management for everything associated with moving your commercial space</li><li>Coordination with voice and data providers, furniture vendors and building management</li><li>Furniture purchasing, liquidation, installation and storage under one roof</li><li>Well known in both corporate and government circles since 1987</li></ul>
+<a class="btn btn-cta btn-lg" href="/request-a-quote/">Request a free quote</a></div>
+<div>{img('Office-Movers-BRS-Warehouse-location-Secaucus-NJ', alt='BRS warehouse in Secaucus, NJ')}</div></div></section>
 
-<section class="sec dark"><div class="wrap"><div class="sec-head"><span class="kicker">How it works</span><h2>From first call to last box</h2><p>Our process is built around a seasoned project manager who assesses, plans, coordinates and executes your relocation.</p></div>
-<div class="steps">{steps_html}</div><p style="text-align:center;margin:40px 0 0"><a class="btn btn-cta btn-lg" href="/request-a-quote/">Start your free quote</a></p></div></section>
+<section class="sec"><div class="wrap"><div class="sec-head"><h2>How a move works with BRS</h2><p>Our process is built around a seasoned project manager who assesses, plans, coordinates and executes your relocation.</p></div>
+<div class="steps">{steps_html}</div></div></section>
 
-<section class="sec"><div class="wrap"><div class="sec-head"><span class="kicker">Client testimonials</span><h2>Don’t take our word for it</h2><p>Here’s what our clients say.</p></div>
+<section class="sec soft"><div class="wrap"><div class="sec-head"><h2>Don’t take our word for it</h2><p>Here’s what our clients say.</p></div>
 <div class="reviews">{tests}</div></div></section>
 
-<section class="sec soft"><div class="wrap"><div class="cta-band reveal"><div><h2>Do you need help with your business move?</h2><p>We are a full-service moving company. Get a free quote and moving consultation.</p></div>
-<div class="actions"><a class="btn btn-cta btn-lg" href="/request-a-quote/">Request a Free Quote</a><a class="btn btn-ghost btn-lg" href="tel:{PHONE_TEL}">Call {PHONE}</a></div></div></div></section>
+<section class="sec" style="padding-bottom:0"><div class="wrap"><div class="cta-band"><div><h2>Do you need help with your business move?</h2><p>We are a full-service moving company. Get a free quote and moving consultation.</p></div>
+<div class="actions"><a class="btn btn-cta btn-lg" href="/request-a-quote/">Request a free quote</a><a class="btn btn-ghost btn-lg" href="tel:{PHONE_TEL}">Call {PHONE}</a></div></div></div></section>
 
-<section class="sec"><div class="wrap"><div class="sec-head"><span class="kicker">Our executive team</span><h2>Specialists in their field</h2><p>Highly qualified, experienced and knowledgeable industry professionals who are passionate and dedicated to our clients.</p></div>
+<section class="sec"><div class="wrap"><div class="sec-head"><h2>Our executive team</h2><p>Each member of our team is a specialist in their field: highly qualified, experienced and knowledgeable professionals who are dedicated to our clients.</p></div>
 <div class="team">{team}</div></div></section>
 
-<section class="sec soft"><div class="wrap"><div class="sec-head"><span class="kicker">Certified &amp; recognized</span><h2>Minority &amp; Women-Owned Business Enterprise</h2>
+<section class="sec soft"><div class="wrap"><div class="sec-head center"><h2>Certified Minority and Women-Owned Business</h2>
 <p>BRS is a certified MWBE and a member of the National Hispanic Business Group, International Facility Managers Association (IFMA) and CoreNet.</p></div>
-<div class="certs">{certs}</div><div class="members"><span>National Hispanic Business Group</span><span>IFMA</span><span>CoreNet</span><span>Certified MWBE</span></div>
+<div class="certs">{certs}</div><div class="members"><span>National Hispanic Business Group</span><span>IFMA</span><span>CoreNet</span></div>
 <p style="text-align:center;margin-top:30px"><a class="btn btn-outline" href="/mbe-minority-business-enterprise-certification/">About our certifications</a></p></div></section>
 
-<section class="sec"><div class="wrap"><div class="sec-head"><span class="kicker">FAQ</span><h2>Questions about moving your business</h2></div><div class="faq">{faq}</div></div></section>
+<section class="sec"><div class="wrap"><div class="sec-head"><h2>Questions about moving your business</h2></div><div class="faq">{faq}</div></div></section>
 
-<section class="sec soft"><div class="wrap"><div class="sec-head"><span class="kicker">Latest news</span><h2>Office relocation advice from the pros</h2></div>
-<div class="grid g3">{post_cards}</div><p style="text-align:center;margin-top:30px"><a class="btn btn-outline" href="/blog/">Read all articles</a></p></div></section>
+<section class="sec soft"><div class="wrap"><div class="sec-head"><h2>Latest from our blog</h2><p>Office relocation advice from the pros.</p></div>
+<div class="grid g3">{post_cards}</div><p style="margin-top:36px"><a class="btn btn-outline" href="/blog/">Read all articles</a></p></div></section>
 
-<section class="sec"><div class="wrap"><div class="sec-head"><span class="kicker">Visit us</span><h2>Two locations to serve you</h2><p>Business Relocation Services in New York, New Jersey and Pennsylvania for over 40 years.</p></div>
+<section class="sec"><div class="wrap"><div class="sec-head"><h2>Two locations to serve you</h2><p>Business Relocation Services in New York, New Jersey and Pennsylvania for over 40 years.</p></div>
 <div class="grid g2">{''.join(loc_card(a) for a in ADDR)}</div></div></section>
 {cta_band('Start your free quote now', f'For immediate assistance call {PHONE}. Let’s start moving!')}'''
     schema = {'@context': 'https://schema.org', '@graph': [
@@ -638,7 +639,7 @@ def build_home():
 def loc_card(a):
     q = f'{a[1]}, {a[2]}, {a[3]} {a[4]}'
     from urllib.parse import quote
-    return f'''<div class="loc reveal"><h3>{a[0]}</h3><address>{a[1]}<br>{a[2]}, {a[3]} {a[4]}</address><p style="margin:0"><a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query={quote("Business Relocation Services " + q)}" target="_blank" rel="noopener noreferrer">Get directions</a></p></div>'''
+    return f'''<div class="loc"><h3>{a[0]}</h3><address>{a[1]}<br>{a[2]}, {a[3]} {a[4]}</address><p style="margin:0"><a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query={quote("Business Relocation Services " + q)}" target="_blank" rel="noopener noreferrer">Get directions</a></p></div>'''
 
 
 def post_meta(slug):
@@ -664,7 +665,7 @@ def fmt_date(d):
 
 def post_card(slug):
     m = post_meta(slug)
-    return f'''<article class="card card-img post-card reveal">{img(m['img']) if m['img'] else ''}<div class="body"><div class="meta"><time datetime="{m['date']}">{fmt_date(m['date'])}</time></div><h3><a href="/{slug}/">{esc(m['title'])}</a></h3><p>{esc(m['excerpt'])}</p><a class="more" href="/{slug}/">Read more</a></div></article>'''
+    return f'''<article class="card card-img post-card">{img(m['img']) if m['img'] else ''}<div class="body"><div class="meta"><time datetime="{m['date']}">{fmt_date(m['date'])}</time></div><h3><a href="/{slug}/">{esc(m['title'])}</a></h3><p>{esc(m['excerpt'])}</p><a class="more" href="/{slug}/">Read more</a></div></article>'''
 
 
 def build_service(slug):
@@ -684,7 +685,7 @@ def build_service(slug):
     if slug == 'our-services':
         groups = ''
         for g in GROUPS:
-            items = ''.join(f'<article class="card reveal"><h3><a href="/{s[0]}/" style="text-decoration:none;color:inherit">{esc(s[1])}</a></h3><p>{esc(s[3])}</p><a class="more" href="/{s[0]}/">Learn more</a></article>' for s in SERVICES if s[4] == g)
+            items = ''.join(f'<article class="card"><h3><a href="/{s[0]}/" style="text-decoration:none;color:inherit">{esc(s[1])}</a></h3><p>{esc(s[3])}</p><a class="more" href="/{s[0]}/">Learn more</a></article>' for s in SERVICES if s[4] == g)
             groups += f'<h2 style="margin:1.6em 0 .7em">{g}</h2><div class="grid g3">{items}</div>'
         extra_top = f'<div class="wrap" style="padding-top:56px">{groups}</div>'
     prose = render_prose(blocks, body_imgs, drop_first_heading=h1)
@@ -693,11 +694,11 @@ def build_service(slug):
         prose += f'<h2>Our certifications</h2><div class="certs">{figs}</div><p style="margin-top:1.6em"><a href="https://sbsconnect.nyc.gov/certification-directory-search/" target="_blank" rel="noopener noreferrer">Search the NYC Online Directory of Certified Businesses →</a></p>'
     hero_style = f' style="--hero-img:url(\'/assets/img/{hero_img}\')"' if hero_img else ''
     hero = f'''<section class="page-hero{' has-img' if hero_img else ''}"{hero_style}><div class="wrap">{crumbs_html(crumb)}<h1>{esc(h1)}</h1><p class="lead">{esc(blurb)}</p>
-<div class="hero-actions" style="margin-bottom:0"><a class="btn btn-cta btn-lg" href="/request-a-quote/">Get a Free Quote</a><a class="btn btn-ghost btn-lg" href="tel:{PHONE_TEL}">Call {PHONE}</a></div></div></section>'''
+<div class="hero-actions" style="margin-bottom:0"><a class="btn btn-cta btn-lg" href="/request-a-quote/">Get a Free Quote</a><a class="btn btn-outline btn-lg" href="tel:{PHONE_TEL}">Call {PHONE}</a></div></div></section>'''
     rel = ''
     if slug in SV:
         rel = '<section class="sec soft"><div class="wrap"><div class="sec-head"><h2>Related services</h2></div><div class="grid g4">' + ''.join(
-            f'<article class="card reveal"><h3>{esc(s[1])}</h3><p>{esc(s[3])}</p><a class="more" href="/{s[0]}/">Learn more</a></article>' for s in related(slug)) + '</div></div></section>'
+            f'<article class="card"><h3>{esc(s[1])}</h3><p>{esc(s[3])}</p><a class="more" href="/{s[0]}/">Learn more</a></article>' for s in related(slug)) + '</div></div></section>'
     layout = '' if slug == 'our-services' else f'<div class="wrap layout"><div class="prose">{prose}</div>{side(slug)}</div>'
     if slug == 'our-services':
         layout = f'{extra_top}<div class="wrap" style="padding:30px 0 40px"><div class="prose" style="max-width:860px">{prose}</div></div>'
