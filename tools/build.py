@@ -595,7 +595,7 @@ def build_home():
 <p>We help with the transfer of your business from the smallest details to the most complex changes: offices, warehouses or any type of commercial property.</p></div>
 <div class="svc-list">{svc_html}</div>
 <div class="feature-row">{feat_html}</div>
-<div class="pill-links">{''.join(f'<a href="/{s[0]}/">{esc(s[1])}</a>' for s in SERVICES)}</div></div></section>
+</div></section>
 
 <section class="sec soft"><div class="wrap split"><div><h2>A project manager who keeps your business moving</h2>
 <p>The basic requirement is the knowledge of a seasoned Project Manager well versed in how to assess, plan, coordinate, monitor and execute. The benefit is a return on investment (ROI): the experience of a project manager lets your staff do their daily duties and your company operate without interruption.</p>
