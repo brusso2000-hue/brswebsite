@@ -1,0 +1,79 @@
+{
+ "slug": "server-moving-computer-relocation",
+ "h1": "Server moving and computer equipment relocation",
+ "lead": "BRS relocates servers, storage, network equipment, full racks and UPS units, from consulting and planning through full migrations.",
+ "link_text": "Explore server moving services",
+ "card_blurb": "Planned de-install and re-install of servers, storage, network gear and racks, with minimal disruption.",
+ "meta_title": "Server Moving and Relocation Services | BRS",
+ "meta_description": "BRS de-installs and re-installs servers, storage, network equipment, racks and UPS units, with planning and migration support to protect your operations.",
+ "overview": [
+  "Moving servers is complex and carries real risk to your data and security. It needs careful planning, because problems can escalate quickly.",
+  "BRS offers server relocation from consulting and planning through full migrations. We de-install and re-install servers, storage, network equipment, full racks and UPS units, with the aim of completing your move on schedule and without disrupting business operations."
+ ],
+ "benefits": [
+  {
+   "title": "Planning before moving",
+   "text": "Inventory, backups and labeling are built into the work, not left to chance."
+  },
+  {
+   "title": "Support from consulting to migration",
+   "text": "We can advise, plan and carry out the full move."
+  },
+  {
+   "title": "Minimal business disruption",
+   "text": "We aim to complete your relocation on schedule without disrupting operations."
+  }
+ ],
+ "included": [
+  "Server relocation by professional IT technicians",
+  "De-install and re-install of servers, storage and network equipment",
+  "Relocation of full racks and UPS units",
+  "Consulting and planning",
+  "Full migrations",
+  "Data center relocation and migration support",
+  "Quotes on request"
+ ],
+ "process": [
+  {
+   "title": "Inventory the equipment",
+   "text": "We build an equipment list and audit it so nothing is missed."
+  },
+  {
+   "title": "Prepare and label",
+   "text": "Backups are confirmed, and equipment and cables are labeled for correct reinstallation."
+  },
+  {
+   "title": "De-install and move",
+   "text": "Equipment is de-installed and moved, with each item checked off as it transfers."
+  },
+  {
+   "title": "Re-install",
+   "text": "Servers, storage, network gear and racks are re-installed and documented."
+  }
+ ],
+ "who_for": [
+  "Companies moving servers during an office relocation",
+  "IT teams planning a server migration",
+  "Organizations moving full racks, storage or UPS units",
+  "Businesses that need to avoid disruption to operations"
+ ],
+ "faq": [
+  {
+   "q": "Why is moving servers considered risky?",
+   "a": "If something goes wrong, data can be lost, and there are security risks as well. That is why careful planning matters."
+  },
+  {
+   "q": "Why create an inventory list?",
+   "a": "A data center has hundreds of components, and it is easy to overlook one. Auditing the list two to three times and checking items off on move day helps avoid that."
+  },
+  {
+   "q": "Why does labeling matter for a server move?",
+   "a": "Cables and equipment need to be reinstalled correctly. Labeling makes unpacking and reinstalling easier."
+  }
+ ],
+ "related": [
+  "data-center-relocation",
+  "computer-moving",
+  "moving-it-equipment-in-new-york"
+ ]
+}

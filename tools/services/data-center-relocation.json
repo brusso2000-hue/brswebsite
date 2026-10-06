@@ -1,0 +1,78 @@
+{
+ "slug": "data-center-relocation",
+ "h1": "Data center relocation and migration",
+ "lead": "BRS plans, moves and delivers data center and IT hardware equipment, with careful documentation and coordination at every stage.",
+ "link_text": "Explore data center relocation services",
+ "card_blurb": "Planning, moving and delivery of data center equipment, with documentation to support reassembly.",
+ "meta_title": "Data Center Relocation Services | BRS",
+ "meta_description": "BRS plans and carries out data center relocations and migrations in New York, New Jersey and Pennsylvania, including IT hardware removal and relocation.",
+ "overview": [
+  "A data center is often the most critical part of an office move, and it is easy to underestimate. Many things can go wrong, so the relocation needs to be planned properly.",
+  "BRS provides planning, moving and delivery of your data equipment. We offer IT hardware removal and relocation in New York, New Jersey and Pennsylvania."
+ ],
+ "benefits": [
+  {
+   "title": "Planning-led approach",
+   "text": "The move is planned in detail before equipment is touched."
+  },
+  {
+   "title": "Documentation that helps reassembly",
+   "text": "Written records show how everything goes back together."
+  },
+  {
+   "title": "Experienced project management",
+   "text": "Experienced people lead the disassembly and reassembly."
+  }
+ ],
+ "included": [
+  "Data center migrations",
+  "Planning, moving and delivery of equipment",
+  "IT hardware removal and relocation",
+  "Computer and server moving",
+  "Support for assembly and disassembly of a data center",
+  "Free quotes on request"
+ ],
+ "process": [
+  {
+   "title": "Plan the relocation",
+   "text": "We plan the move and identify what resources the team will need."
+  },
+  {
+   "title": "Document everything",
+   "text": "Cables, connections and equipment are written down so nothing relies on memory."
+  },
+  {
+   "title": "Move and deliver",
+   "text": "Equipment is carefully moved and delivered to the new site."
+  },
+  {
+   "title": "Reassemble",
+   "text": "Documentation guides the rebuild so systems are reinstalled correctly."
+  }
+ ],
+ "who_for": [
+  "Companies relocating offices with a data center",
+  "IT departments that need an experienced partner",
+  "Organizations migrating IT hardware to a new site",
+  "Businesses that need to move servers and computers securely"
+ ],
+ "faq": [
+  {
+   "q": "Why does documentation matter in a data center move?",
+   "a": "IT infrastructure is complex, and few people can rebuild it from memory. Written records show where cables and equipment belong."
+  },
+  {
+   "q": "Who should lead a data center relocation?",
+   "a": "An experienced moving company is the best option. If your IT team does it, assign a project manager experienced in taking apart and rebuilding a data center."
+  },
+  {
+   "q": "What does the rest of the organization need to do?",
+   "a": "Departments should give the relocation team the tools and communication it needs so obstacles are cleared quickly."
+  }
+ ],
+ "related": [
+  "server-moving-computer-relocation",
+  "computer-moving",
+  "moving-it-equipment-in-new-york"
+ ]
+}
