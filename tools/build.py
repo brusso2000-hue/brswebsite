@@ -12,7 +12,7 @@ Output
 Quote forms are Netlify Forms (POST to "/" with data-netlify). Notifications are configured
 in the Netlify dashboard: Site configuration -> Forms -> Form notifications.
 """
-import datetime, glob, html, json, os, re, shutil
+import datetime, glob, hashlib, html, json, os, re, shutil
 from urllib.parse import quote
 from PIL import Image
 
@@ -225,6 +225,11 @@ def footer():
 <nav class="mbar" aria-label="Quick actions"><a class="btn btn-outline" href="tel:{PHONE_TEL}">Call now</a><a class="btn btn-cta" href="/request-a-quote/">Get a Quote</a></nav>'''
 
 
+def ver(rel):
+    """Short content hash so a changed stylesheet/script gets a new URL (browsers never keep a stale copy)."""
+    return hashlib.md5(open(os.path.join(ROOT, rel), 'rb').read()).hexdigest()[:8]
+
+
 def head(title, desc, path, og_img=None, schema=None, noindex=False, extra=''):
     url = SITE + (path if path.startswith('/') else '/' + path)
     og = og_img or '/assets/og-default.jpg'
@@ -249,13 +254,13 @@ def head(title, desc, path, og_img=None, schema=None, noindex=False, extra=''):
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/style.css?v={ver("assets/css/style.css")}">
 {extra}{schema_html}
 </head>'''
 
 
 def page(path, title, desc, body, current='', og_img=None, schema=None, noindex=False, extra=''):
-    out = head(title, desc, path, og_img, schema, noindex, extra) + '<body>' + header(current) + '<main id="main" tabindex="-1">' + body + '</main>' + footer() + '<script src="/assets/js/main.js" defer></script></body></html>'
+    out = head(title, desc, path, og_img, schema, noindex, extra) + '<body>' + header(current) + '<main id="main" tabindex="-1">' + body + '</main>' + footer() + '<script src="/assets/js/main.js?v=' + ver("assets/js/main.js") + '" defer></script></body></html>'
     # analytics hooks (consumed by main.js only if a dataLayer exists; no personal data)
     out = out.replace('href="/request-a-quote/"', 'href="/request-a-quote/" data-track="quote-cta"')
     out = re.sub(r'href="tel:([^"]+)"', r'href="tel:\1" data-track="phone-click"', out)

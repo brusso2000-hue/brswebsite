@@ -3,10 +3,27 @@
   publish = "."
   command = "sh tools/netlify-build.sh"
 
+# CSS and JS are referenced as style.css?v=<hash>, so a changed file always gets a new URL and can be cached hard.
 [[headers]]
-  for = "/assets/*"
+  for = "/assets/css/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Images and fonts keep their filenames across edits, so never cache them for long.
+[[headers]]
+  for = "/assets/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
 
 [[headers]]
   for = "/*"
