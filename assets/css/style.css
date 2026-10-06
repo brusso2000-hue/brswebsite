@@ -80,7 +80,7 @@ a,button,input,select,textarea,summary,[tabindex]{scroll-margin-top:110px;scroll
 .ticks li{padding-left:1.5em;position:relative}
 .ticks li::before{content:"";position:absolute;left:0;top:.8em;width:.8em;height:2px;background:var(--accent)}
 .ticks.inline{grid-template-columns:repeat(2,max-content);gap:6px 32px}
-.hero-photo{margin-top:56px}
+.hero .wrap.hero-photo{display:block;margin-top:56px}
 .hero-photo img{width:100%;aspect-ratio:21/8;object-fit:cover;border-radius:var(--radius)}
 
 /* Cards, forms */
