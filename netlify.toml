@@ -1,7 +1,6 @@
-# Static site: HTML is prebuilt (python3 tools/build.py) and committed. Netlify serves the repo root.
+# Static site: no build step. Netlify serves the repo root.
 [build]
   publish = "."
-  command = "sh tools/netlify-build.sh"
 
 [[headers]]
   for = "/assets/*"
@@ -13,4 +12,3 @@
   [headers.values]
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    X-Frame-Options = "SAMEORIGIN"
